@@ -1,10 +1,10 @@
 class BowlingGame
   def initialize(*total_knocked_pins)
-    raise "Please provie valid input score for each run" if total_knocked_pins.size < 20 || total_knocked_pins.empty?
+    fail "Please provie valid input score for each run" if total_knocked_pins.size < 20 || total_knocked_pins.empty?
     @frames = []
     total_knocked_pins.each_slice(2) {|slice| @frames << slice}
 
-    raise "For each frame knocked pins should not exceeds 10" if @frames.any?{|ar| ar.inject(0, :+)  > 10}
+    fail "For each frame knocked pins should not exceeds 10" if @frames.any?{|ar| ar.inject(0, :+)  > 10}
     @score = 0
   end
 
